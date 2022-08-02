@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = 8000;
-const DB = "inventory_db";
+const DB = "store_db";
 
 //Middleware
 app.use(cors(), express.json(), express.urlencoded({extended:true}));
