@@ -7,11 +7,25 @@ function App() {
     <div className="App">
       <div class = "header">
         <h1>Blair's Booming Business</h1>
-        <Link to="/">Home</Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <Link to="/"> Home </Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         <Link to="/create/new"> Create a Product </Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <Link to="/blogs"> View All Products </Link>
+        <Link to="/store"> View All Products </Link>
         <hr/>
       </div>
+      {/* <Switch>
+        <Route path = "/store/update/:id">
+          <Update/>
+        </Route> 
+        <Route exact path = "/store">
+          <All/>
+        </Route>
+        <Route exact path = "/create/new">
+          <Form/>
+        </Route> 
+        <Route path ="/store/:id">
+          <ViewOne/>
+        </Route> 
+      </Switch> */}
     </div>
   );
 }
