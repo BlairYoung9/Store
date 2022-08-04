@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import Form from './components/Form';
+import All from './components/All';
+import ViewOne from './components/ViewOne';
+import Update from "./components/Update";
 import {Link, Switch, Route, BrowserRouter} from "react-router-dom"
 
 function App() {
@@ -8,24 +12,24 @@ function App() {
       <div class = "header">
         <h1>Blair's Booming Business</h1>
         <Link to="/"> Home </Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        <Link to="/create/new"> Create a Product </Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <Link to="/store"> View All Products </Link>
+        <Link to="/create/new"> Create an Item </Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to="/items"> View All Items </Link>
         <hr/>
       </div>
-      {/* <Switch>
-        <Route path = "/store/update/:id">
+      <Switch>
+        <Route path = "/item/update/:id">
           <Update/>
         </Route> 
-        <Route exact path = "/store">
+        <Route exact path = "/items">
           <All/>
         </Route>
         <Route exact path = "/create/new">
           <Form/>
         </Route> 
-        <Route path ="/store/:id">
+        <Route path ="/item/:id">
           <ViewOne/>
         </Route> 
-      </Switch> */}
+      </Switch>
     </div>
   );
 }

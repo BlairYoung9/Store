@@ -4,7 +4,7 @@ import axios from 'axios';
 
 //display all the products
 const All = (props) => {
-    const [item, setItems] = useState([])
+    const [items, setItems] = useState([])
 
     useEffect( () => {
         getItemsFromDB()
@@ -19,14 +19,14 @@ const All = (props) => {
         .catch (err => console.log(err))
     }
     
-    const deleteBlog = (deleteId) => {
+    const deleteItem = (deleteId) => {
         axios.delete("http://localhost:8001/api/items/" + deleteId)
             .then( res => {
                 console.log(res.data);
                 console.log("SUCCESS DELETED!");
 
                 // remove from DOM after delete success
-                setItems(items.filter((product) => product._id !== deleteId))
+                setItems(items.filter((item) => item._id !== deleteId))
             })
             .catch(err => console.log(err))
     }

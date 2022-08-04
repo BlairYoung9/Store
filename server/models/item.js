@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 
 //Schema with product title, price, and description
-const ProductSchema = new mongoose.Schema({
+const ItemSchema = new mongoose.Schema({
     title:{
         type: String,
         required: [true, "{PATH} must be present"],
@@ -20,5 +20,5 @@ const ProductSchema = new mongoose.Schema({
     }
 }, {timestamps: true})
 
-const Product = mongoose.model("Product", ProductSchema)
-module.exports = Product;
+const Item = mongoose.model("Item", ItemSchema)
+module.exports = Item;

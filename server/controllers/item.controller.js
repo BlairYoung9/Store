@@ -1,42 +1,43 @@
-const Product = require("../models/product")
+const Item = require("../models/item")
+const itemRoute = require("../routes/item.route")
 
 module.exports = {
 
     //READ ALL
     findAll: (req,res) => {
-        Product.find()
-            .then(allProducts => res.json({products: allProducts}))
+        Item.find()
+            .then(allItems => res.json({items: allItems}))
             .catch(err => res.json({message: "error res", error : err}))
     },
 
     //CREATE
     create: (req,res) => {
-        Product.create(req.body)
-            .then(newProduct => res.json(newProduct))
+        Item.create(req.body)
+            .then(newItem => res.json(newItem))
             .catch(err => res.json({message: "error res", error : err}))
     },
 
     //READ ONE
     findOne: (req,res) => {
-        Product.findById(req.params.id)
-            .then(product => res.json(product))
+        Item.findById(req.params.id)
+            .then(itemRoute => res.json(item))
             .catch(err => res.json({message: "error res", error : err}))
     },
 
     //UPDATE
     update: (req,res) => {
-        Product.findByIdAndUpdate(req.params.id, req.body, {
+        Item.findByIdAndUpdate(req.params.id, req.body, {
             new: true, runValidators: true
         })
-            .then((updatedProduct) => {
-                res.json(updatedProduct)
+            .then((updatedItem) => {
+                res.json(updatedItem)
             })
             .catch(err => res.json({message: "error res", error : err}))
     },
 
     //DELETE
     delete: (req, res) => {
-        Product.findByIdAndDelete(req.params.id)
+        Item.findByIdAndDelete(req.params.id)
             .then(result => res.json(result))
             .catch(err => res.json({message: "error res", error : err}))
     }
