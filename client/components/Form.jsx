@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
-const BlogForm = (props) => {
+const ItemForm = (props) => {
     const [title, setTitle] = useState("");
     const [titleError, setTitleError] = useState("");
-    const [text, setText] = useState("");
-    const [textError, setTextError] = useState("");
-    const [author, setAuthor] = useState("");
-    const [authorError, setAuthorError] = useState("");
+    const [price, setPrice] = useState("");
+    const [priceError, setPriceError] = useState("");
+    const [description, setDescription] = useState("");
+    const [descriptionError, setDescriptionError] = useState("");
     const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
-    const createBlog = (e) => {
+    const createItem = (e) => {
         e.preventDefault();
-        const newBlog = {title, text, author};
-        axios.post("http://localhost:8001/api/blogs",newBlog)
+        const newItem = { title, price, description};
+        axios.post("http://localhost:8001/api/items",newItem)
             .then(res =>{
                 console.log(res.data)
                 console.log("SUCCESS")
@@ -31,47 +31,45 @@ const BlogForm = (props) => {
 	    return "Welcome, please submit the form.";
 	}
     };
-    
-    //Set Title
+
+    //Create Title
     const handleTitle= (e) => {
         setTitle(e.target.value);
         if(e.target.value.length < 1) {
             setTitleError("Title is required.");
-        }else if(e.target.value.length < 2) {
+        } else if(e.target.value.length < 2) {
             setTitleError("Title must be 2 characters or longer.");
         }else{
             setTitleError(""); 
         }
     }
-    //Set Text
-    const handleText= (e) => {
-        setText(e.target.value);
+    //Create Price
+    const handlePrice= (e) => {
+        setPrice(e.target.value);
         if(e.target.value.length < 1) {
-            setTextError("Text is required.");
-        }else if(e.target.value.length < 2) {
-            setTextError("Text must be 2 characters or longer.");
+            setPriceError("Price is required.");
+        } else if(e.target.value.length < 2) {
+            setPriceError("Price must be 2 characters or longer.");
         }else{
-            setTextError(""); 
+            setPriceError(""); 
         }
     }
-    
-    //Set Author
-    const handleAuthor= (e) => {
-        setAuthor(e.target.value);
+    //Create Description
+    const handleDescription= (e) => {
+        setDescription(e.target.value);
         if(e.target.value.length < 1) {
-            setAuthorError("Author is required.");
-        }else if(e.target.value.length < 2) {
-            setAuthorError("Author must be 2 characters or longer.");
+            setDescriptionError("Description is required.");
+        } else if(e.target.value.length < 5) {
+            setDescriptionError("Description must be 5 characters or longer.");
         }else{
-            setAuthorError(""); 
+            setDescriptionError(""); 
         }
     }
 
-    //Form
     return (
         <div className="App">
-            <p>Blog Post</p>
-            <form onSubmit={createBlog}>
+            <p>Here are all the items you can buy!</p>
+            <form onSubmit={createItem}>
                 <h3>{formMessage()}</h3>
                 <div>
                     <label>Title : </label>
@@ -79,18 +77,21 @@ const BlogForm = (props) => {
                     <p>{titleError}</p>
                 </div>                 
                 <div>
-                    <label>Text : </label>
-                    <textarea value={text} onChange={handleText} />
-                    <p>{textError}</p>
+                    <label>Price : </label>
+                    <input type="text" onChange={handlePrice} value={price} />
+                    <p>{priceError}</p>
                 </div>
+                
                 <div>
-                    <label>Author : </label>
-                    <input type="text" onChange={(e) => handleAuthor(e)} value = {author} />
-                    <p>{authorError}</p>
+                    <label>Desc. : </label>
+                    <input type="text" onChange={(e) => handleDescription(e)} value={description} />
+                    <p>{descriptionError}</p>
                 </div>
-                <input type="submit" value="Create Blog" />
+                
+                <input type="submit" value="Create Item" />
             </form>
         </div>
     );
 };
-export default BlogForm;
+
+export default ItemForm;
