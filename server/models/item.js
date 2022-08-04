@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 
-//Schema with product title, price, and description
+//Schema with item title, price, and description
 const ItemSchema = new mongoose.Schema({
     title:{
         type: String,

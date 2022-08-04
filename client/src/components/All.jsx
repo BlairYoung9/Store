@@ -11,7 +11,7 @@ const All = (props) => {
     }, [])
 
     const getItemsFromDB = () => {
-        axios.get("http://localhost:8001/api/items")
+        axios.get("http://localhost:8000/api/items")
         .then(res => {
             console.log(res.data);
             setItems(res.data.items);
@@ -20,7 +20,7 @@ const All = (props) => {
     }
     
     const deleteItem = (deleteId) => {
-        axios.delete("http://localhost:8001/api/items/" + deleteId)
+        axios.delete("http://localhost:8000/api/items/" + deleteId)
             .then( res => {
                 console.log(res.data);
                 console.log("SUCCESS DELETED!");

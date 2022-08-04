@@ -14,7 +14,7 @@ const ItemForm = (props) => {
     const createItem = (e) => {
         e.preventDefault();
         const newItem = { title, price, description};
-        axios.post("http://localhost:8001/api/items",newItem)
+        axios.post("http://localhost:8000/api/items",newItem)
             .then(res =>{
                 console.log(res.data)
                 console.log("SUCCESS")

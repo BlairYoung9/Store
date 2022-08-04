@@ -9,7 +9,7 @@ const ViewOne = (props) =>{
     const { id } = useParams();
     const [thisItem, setThisItem] = useState({});
     useEffect( () => {
-        axios.get("http://localhost:8001/api/items/"+ id)
+        axios.get("http://localhost:8000/api/items/"+ id)
             .then(res => {
                 console.log(res.data);
                 setThisItem(res.data);
@@ -19,7 +19,7 @@ const ViewOne = (props) =>{
     }, [])
     const deleteItem = (deleteId) => {
         // console.log(deleteId);
-        axios.delete("http://localhost:8001/api/items/" + deleteId)
+        axios.delete("http://localhost:8000/api/items/" + deleteId)
             .then( res => {
                 console.log(res.data);
                 console.log("SUCCESS DELETE!");
