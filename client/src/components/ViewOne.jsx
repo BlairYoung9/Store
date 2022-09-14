@@ -14,7 +14,10 @@ const ViewOne = (props) =>{
                 console.log(res.data);
                 setThisItem(res.data);
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log("ERROR HERE");
+                console.log( err);
+            })
 
     }, [])
     const deleteItem = (deleteId) => {
@@ -34,7 +37,7 @@ const ViewOne = (props) =>{
         <h2>View One</h2>
         <h2>Title : {thisItem.title}</h2>
         <h2>Price : {thisItem.price}</h2>
-        <h2>Desc. :{thisItem.description}</h2>
+        <h2>Desc. : {thisItem.description}</h2>
         <Link to={"/items/update/" +id}>edit</Link>
         <h2></h2>
         <button onClick={ () => deleteItem(id)}>Delete Item</button>

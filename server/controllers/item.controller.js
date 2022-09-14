@@ -1,5 +1,4 @@
 const Item = require("../models/item")
-const itemRoute = require("../routes/item.route")
 
 module.exports = {
 
@@ -20,13 +19,13 @@ module.exports = {
     //READ ONE
     findOne: (req,res) => {
         Item.findById(req.params.id)
-            .then(itemRoute => res.json(item))
+            .then(item => res.json(item))
             .catch(err => res.json({message: "error res", error : err}))
     },
 
     //UPDATE
     update: (req,res) => {
-        Item.findByIdAndUpdate(req.params.id, req.body, {
+        Item.findByIdAndUpdate(req.params.id, req.body, { 
             new: true, runValidators: true
         })
             .then((updatedItem) => {

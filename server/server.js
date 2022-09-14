@@ -10,6 +10,8 @@ app.use(cors(), express.json(), express.urlencoded({extended:true}));
 //DB Connection
 require("./config/mongoose.config")(DB)
 
+//connect the routes
+require("./routes/item.routes")(app);
 
 app.listen(PORT, () => {
     console.log(`SERVER IS UP ON: ${PORT}`)

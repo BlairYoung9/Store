@@ -11,13 +11,13 @@ function App() {
     <div className="App">
       <div class = "header">
         <h1>Blair's Booming Business</h1>
-        <Link to="/"> Home </Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        <Link to="/create/new"> Create an Item </Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to="/"> Home </Link> &nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to="/create/new"> Create an Item </Link> &nbsp;&nbsp;&nbsp;&nbsp;
         <Link to="/items"> View All Items </Link>
         <hr/>
       </div>
       <Switch>
-        <Route path = "/item/update/:id">
+        <Route path = "/items/update/:id">
           <Update/>
         </Route> 
         <Route exact path = "/items">
@@ -26,7 +26,7 @@ function App() {
         <Route exact path = "/create/new">
           <Form/>
         </Route> 
-        <Route path ="/item/:id">
+        <Route path ="/items/:id">
           <ViewOne/>
         </Route> 
       </Switch>
