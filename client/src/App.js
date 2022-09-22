@@ -12,7 +12,7 @@ function App() {
       <div class = "header">
         <h1>Blair's Booming Business</h1>
         <Link to="/"> Home </Link> &nbsp;&nbsp;&nbsp;&nbsp;
-        <Link to="/create/new"> Create an Item </Link> &nbsp;&nbsp;&nbsp;
+        <Link to="/create/new"> Create an Item </Link> &nbsp;&nbsp;&nbsp;&nbsp;
         <Link to="/items"> View All Items </Link>
         <hr/>
       </div>
